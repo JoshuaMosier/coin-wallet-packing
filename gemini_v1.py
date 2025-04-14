@@ -6,21 +6,22 @@ import matplotlib.patches as patches
 import time
 
 # --- Configuration ---
-CONTAINER_WIDTH = 85.60
-CONTAINER_HEIGHT = 54
+OFFSET = 0.8
+CONTAINER_WIDTH = 85.6 + OFFSET*2
+CONTAINER_HEIGHT = 60
 
 # Coin specifications: (Name, Diameter, Count)
 COIN_SPECS = [
-    ("Quarter", 24.26, 3),
-    ("Dime",    17.91, 2),
-    ("Nickel",  21.21, 1),
-    ("Penny",   19.05, 4),
+    ("Quarter", 24.26+OFFSET, 3),
+    ("Dime",    17.91+OFFSET, 2),
+    ("Nickel",  21.21+OFFSET, 1),
+    ("Penny",   19.05+OFFSET, 4),
 ]
 
 # Simulated Annealing Parameters
 INITIAL_TEMPERATURE = 20.0
-COOLING_RATE = 0.99999 # Slower cooling often better, but takes longer
-MAX_ITERATIONS = 1000000 # Increase for potentially better results
+COOLING_RATE = 0.9999 # Slower cooling often better, but takes longer
+MAX_ITERATIONS = 200000 # Increase for potentially better results
 MOVE_SCALE_INITIAL = 30.0 # Initial max distance a coin can move in one step
 MOVE_SCALE_FINAL = 0.1 # Final max distance
 STOPPING_COST = 1e-9 # Stop if cost is effectively zero
